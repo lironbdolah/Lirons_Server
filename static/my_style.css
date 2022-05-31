@@ -1,0 +1,247 @@
+/* ################# all pages settings ################# */
+
+:root{
+    --page_backround: #fffbf7;
+    --highlight: #d7cec5;
+    --nav_backround: #ede0d4;
+    --font_color: #5a5959;
+    
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: var(--font_color); /* font color */
+    font-family:Arial, Helvetica, sans-serif; /* change font */
+}
+
+html,body{
+    background-color: var(--page_backround); /*  page backround color*/
+}
+ 
+/* Grid setup */
+.pages_container{
+    display: grid;
+    grid-template-areas: 
+    'nav '
+    'header'
+    'main '
+    'lower_footer';
+    }
+
+    
+/*  Grid settings */
+.header {
+    text-align: center;
+    grid-area: header;
+    margin-bottom: 50px;
+    }
+
+.image{
+    grid-area: main;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    text-align: center;
+    margin-bottom: 150px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.lower_footer{
+    grid-area: lower_footer;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.contact_info{
+    grid-area: main;
+    text-align: center;
+}
+
+
+/* class to highlight current page */
+.active {
+    background-color: var(--highlight);
+    opacity: 70%;
+}
+
+
+/* ### navbar settings ### */
+
+/* customize upper navbar */ 
+.navbar{
+    grid-area: nav;
+    display: flex;
+    padding-top: 5px;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: var(--nav_backround);
+    height: 35px;
+    margin-bottom: 50px;
+}
+
+.navbar li{
+    list-style: none; /* remove dot from each link */
+    display: inline-block; /* all links on same row */
+    padding-right:  1rem; /* space between links*/
+
+    height: 100%;
+    margin-right: 30px;
+    font-size: 15px;
+    position: relative;   
+}
+
+.navbar li a{
+    text-decoration: none; /* remove underline from each link */
+    padding: 0;
+    display: block;
+     
+}
+
+/*upper navbar line hover animation */
+.navbar li:after {
+    content: "";
+    position: absolute;
+    width: 20%;
+    height: 2px;
+    display: block;
+    transition: all 0.5s ease;
+    bottom: 5%;
+  }
+
+  .navbar li:hover::after {
+    width: 100%;
+    height: 2px; /* line size */
+    background-color: var(--font_color) /**/
+  }
+
+
+
+ /* ### customize lower footer ###  */ 
+
+.lower_footer li{
+    list-style: none; /* remove dot from each link */
+    padding-bottom: 3px;
+    display: inline-block;
+    margin-right: 7px;
+    
+}
+
+.lower_footer li a{
+    padding: 0;
+    display: block;
+    font-family: "Tahoma", Times, serif; /* change font */
+    color: var(--font_color);
+}
+
+
+
+/* ### home page style ### */
+
+.image a{
+    text-decoration: none;
+}
+
+@keyframes float {
+	0% {
+		
+		transform: translatey(0px);
+	}
+	50% {
+		
+		transform: translatey(-20px);
+	}
+	100% {
+		
+		transform: translatey(0px);
+	}
+}
+ 
+
+/* ### contact page style ### */
+
+.contact_border{
+    background-color: var(--nav_backround);
+    border-radius: 5px; /* round border corners */
+    border-color: var(--font_color);
+    border-style: solid;
+    height: 325px;
+    width: 425px;
+    margin: 0 auto; 
+    text-align: left;
+    opacity: 65%;
+    margin-top: 40px; /* distance from top */
+    padding-left: 10px;
+    
+   }
+.contact_inputs{
+    border-radius: 5px;
+    width: 400px;
+    
+}
+
+.contact_labels{
+    display: block;
+    margin-top: 8px; 
+}
+.date{
+    margin-top: 15px;
+    margin-left: 80px;
+    display: block;
+}
+
+#submit{
+    margin-top: 10px;
+    margin-left: 180px;
+    margin-bottom: 20px;
+}
+
+/* ################# assignment3_1 page settings ################# */
+
+
+
+.album_img{
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    border-color: var(--font_color);
+    border-style: solid;
+}
+
+.album1 {
+    display:  block;
+    text-align: center;
+    margin-bottom: 5%;
+
+}
+
+.album2 {
+    
+    display: block;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.album3 {
+    display: block;
+    text-align: center;
+}
+
+/* ################# assignment3_2 page settings ################# */
+
+.user_search{
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 3%;
+}
+
+.register_user{
+    text-align: center;
+    margin: 0 auto;
+}

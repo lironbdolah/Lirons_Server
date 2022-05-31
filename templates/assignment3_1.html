@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>assignment3_1</title>
+
+    <!-- css style -->
+    
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='my_style.css') }}">
+
+</head>
+
+<body>
+
+    
+    <div class="pages_container">
+        {% extends "homepage.html" %}
+        {% block navbar %}
+            {{ super() }}
+        {% endblock %}
+
+        
+        {% block main %}
+            <!-- header -->
+            <div class="header">
+                <h1 id="header"}>{{"%s:" | format('my top albums') | upper }}</h1>
+            </div>
+
+            
+            
+
+            <div class="albums">
+                <div class="album1">
+                    {{ "%s!" | format(albums[0]) | upper }} 
+                    <img src="{{url_for('static', filename='RustInPeace.jpg')}}" class="album_img"/>
+                <div  class="album2">
+                    {{"%s!" | format(albums[1]) | upper }}
+                    <img src="{{url_for('static', filename='AndJusticeForAll.jpg')}}" class="album_img"/>
+                </div>
+                <div  class="album3">
+                    {{"%s!" | format(albums[2]) | upper }}
+                    <img src="{{url_for('static', filename='Powerslave.jpg')}}" class="album_img"/> <br><br><br>
+                </div>
+
+                <p>More albums:</p> <br>
+                {% for i in range(11) %}
+                    {% if i > 2 %}
+                        <p>{{ albums[i] }}</p>
+                    {% endif %}
+                {% endfor %} 
+
+                
+            </div>
+
+            {{ session['register_text'] }}
+
+        {% endblock %}
+        
+        
+        
+
+        <!-- lower footer -->
+        {% include 'lower_footer.html' %}
+    </div>
+   
+</body>
+
+ <!-- Js script -->
+ <script type=text/javascript src="{{ url_for('static',filename='main.js') }}"></script>
+</html>

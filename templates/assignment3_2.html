@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>assignment3_2</title>
+
+    <!-- css style -->
+    
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='my_style.css') }}">
+
+</head>
+
+<body>
+
+    
+    <div class="pages_container">
+        {% extends "homepage.html" %}
+        {% block navbar %}
+            {{ super() }}
+        {% endblock %}
+
+        
+        {% block main %}
+        <div class="user_search">
+            <p>Please search for a user:</p><br>
+            <form action="/search" target="frame" id="searchform" method="GET">
+                    <input type="text" name="text" />     
+            </form>
+            <input type="submit" form="searchform"/><br>
+
+            {% if processed_text %}
+            <p id="text">{{ processed_text }}</p>
+            {% endif %}
+
+        </div>
+
+        <div class="register_user">
+            <p>Please register a new user:</p><br>
+            <form action="/register" target="frame"  id="registerform" method="POST">
+
+                    <label class="register_username">Username:</label>
+                    <input type="text" class="register_inputs" id="register_username" name="register_username" required>
+
+                    <label class="register_nickname">Nickname:</label>
+                    <input type="text" class="register_inputs" id="register_nickname" name="register_nickname" required>  
+
+                    <label class="register_email">Email:</label>
+                    <input type="text" class="register_inputs" id="register_email" name="register_email" required>
+            </form>
+            <input type="submit" form="registerform"/><br>
+
+
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+        {{ session['register_text'] }}
+
+        {% endblock %}
+        
+
+        <!-- lower footer -->
+        {% include 'lower_footer.html' %}
+    </div>
+   
+</body>
+
+ <!-- Js script -->
+ <script type=text/javascript src="{{ url_for('static',filename='main.js') }}"></script>
+</html>
+

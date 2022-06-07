@@ -76,7 +76,7 @@ def logout():
 
 
 
-@app.route('/github/')z
+@app.route('/github/')
 def github():
     return redirect('https://github.com/lironbdolah')
 

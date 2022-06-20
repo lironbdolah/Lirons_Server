@@ -85,11 +85,6 @@ def refirect_for():
     return redirect(url_for('assignment3_1'))
 
 
-# @app.route("/logout/")
-# def starting_url():
-#     return redirect("assignment3_2")
 
-# @app.route('/redirect/')
-# def redirect():
-#     return redirect("https://github.com/lironbdolah?tab=repositories")
-
+if __name__ == '__main__':
+    app.run(debug=True)

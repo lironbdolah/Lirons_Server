@@ -1,10 +1,10 @@
-from flask import Flask,render_template,url_for, redirect, request, session
-
+from flask import Flask, render_template, url_for, redirect, request, session
 
 app = Flask(__name__)
 # Setup the secret key and the environment
 app.config.update(SECRET_KEY='osd(99092=36&462134kjKDhuIS_d23',
                   ENV='development')
+
 
 def get_users():
     users = {'user_1': {'name': 'moshe', 'email': 'moshe@gmail.com'},
@@ -14,8 +14,8 @@ def get_users():
              'user_5': {'name': 'itzik', 'email': 'itzik@gmail.com'}}
     return users
 
-def search_user(input):
 
+def search_user(input):
     users = get_users()
 
     try:
@@ -28,7 +28,7 @@ def search_user(input):
         return 'This username does not exist (existing users are: user_1...user_5)'
 
 
-def register_user(username,nickname):
+def register_user(username, nickname):
     users = get_users()
     if username in users:
         user = users[username]
@@ -37,20 +37,24 @@ def register_user(username,nickname):
         return "Hello: " + nickname
 
 
-@app.route('/') # render homepage
+@app.route('/')  # render homepage
 def homepage():
     return render_template('homepage.html')
 
-@app.route('/contact/') # render contact page
+
+@app.route('/contact/')  # render contact page
 def contact():
     return render_template('contact.html')
 
-@app.route('/assignment3_1/') # render ‘assignment3_1 page
+
+@app.route('/assignment3_1/')  # render ‘assignment3_1 page
 def assignment3_1():
     return render_template('assignment3_1.html',
-                           albums=['Rust in Peace','...And Justice for all','PowerSlave','Innfestissuman','Ascendancy'])
+                           albums=['Rust in Peace', '...And Justice for all', 'PowerSlave', 'Innfestissuman',
+                                   'Ascendancy'])
 
-@app.route('/assignment3_2/') # render ‘assignment3_2 page
+
+@app.route('/assignment3_2/')  # render ‘assignment3_2 page
 def assignment3_2():
     return render_template('assignment3_2.html')
 
@@ -61,13 +65,15 @@ def my_search_form():
     processed_text = search_user(text)
     return render_template('assignment3_2.html', processed_text=processed_text)
 
+
 @app.route('/register', methods=['POST'])
 def my_register_form():
     register_username = request.form['register_username']
     register_nickname = request.form['register_nickname']
-    register_text = register_user(register_username,register_nickname)
+    register_text = register_user(register_username, register_nickname)
     session['register_text'] = register_text
     return render_template('assignment3_2.html', register_text=session.get(session['register_text']))
+
 
 @app.route('/logout/', methods=['GET', 'POST'])
 def logout():
@@ -75,15 +81,14 @@ def logout():
     return redirect(url_for('assignment3_2'))
 
 
-
 @app.route('/github/')
 def github():
     return redirect('https://github.com/lironbdolah')
 
+
 @app.route('/refirect_for/')
 def refirect_for():
     return redirect(url_for('assignment3_1'))
-
 
 
 if __name__ == '__main__':

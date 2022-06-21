@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
-    
+
     <!-- css style -->
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='my_style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='my_style.css') }}">
 
 </head>
 
@@ -19,29 +19,29 @@
         <!-- nav bar -->
         {% extends "homepage.html" %}
         {% block navbar %}
-            {{ super() }}
+        {{ super() }}
         {% endblock %}
 
-        
+
         {% block main %}
         <!-- main header -->
-        <div class="header"> 
+        <div class="header">
             <h1>Contact</h1>
         </div>
-        
+
         {{ session['register_text'] }}
         <!-- main info -->
-        <div class="contact_info"> 
+        <div class="contact_info">
             <h2>Please leave your personal information:</h2>
-            
+
 
             <div class="contact_border">
                 <label class="contact_labels">* First name:</label>
                 <input type="text" class="contact_inputs" id="first_name" required>
                 <label class="contact_labels">* Last Name:</label>
-                <input type="text" class="contact_inputs" id="last_name" required>                                                                   
+                <input type="text" class="contact_inputs" id="last_name" required>
                 <label class="contact_labels">Email:</label>
-                <input type="email" class="contact_inputs"> 
+                <input type="email" class="contact_inputs">
                 <label class="contact_labels">Phone number:</label>
                 <input type="tel" class="contact_inputs">
 
@@ -51,15 +51,15 @@
                 </div>
 
                 <button id="submit" onclick="birthdayalert()" type="button">Submit</button>
-                <p><strong>* Fields with * are required</strong></p> 
-                <p><strong>** press submit to get your current age</strong></p> 
+                <p><strong>* Fields with * are required</strong></p>
+                <p><strong>** press submit to get your current age</strong></p>
             </div>
         </div>
         {% endblock %}
 
-       
-        
-         <!-- lower footer -->
+
+
+        <!-- lower footer -->
         {% include 'lower_footer.html' %}
 
     </div>
@@ -67,4 +67,5 @@
 
 <!-- Js script -->
 <script type=text/javascript src="{{ url_for('static',filename='main.js') }}"></script>
+
 </html>

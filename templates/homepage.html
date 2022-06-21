@@ -8,52 +8,53 @@
     <title>Liron</title>
 
     <!-- css style -->
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='my_style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='my_style.css') }}">
 
 </head>
 
 <body>
-    
+
     <div class="pages_container">
 
-        {% block navbar %}  
-            <!-- nav bar -->
-            <nav class="navbar">
-                <ul> 
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/contact/">Contact</a></li>   
-                    <li><a href="/assignment3_1/">assignment3_1</a></li>
-                    <li><a href="/refirect_for/">redirect to assignment3_1</a></li>   
-                    <li><a href="/assignment3_2/">assignment3_2</a></li>
-                    <li><a href="/github/">Github</a></li>
-                    
-                </ul>
-            </nav>
+        {% block navbar %}
+        <!-- nav bar -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/assignment3_1/">assignment3_1</a></li>
+                <li><a href="/refirect_for/">redirect to assignment3_1</a></li>
+                <li><a href="/assignment3_2/">assignment3_2</a></li>
+                <li><a href="/github/">Github</a></li>
+
+            </ul>
+        </nav>
         {% endblock %}
-        
-        {% block main %}   
+
+        {% block main %}
         <!-- header -->
         <div class="header">
             <h1 id="header">Liron's home page</h1>
         </div>
 
         {{ session['register_text'] }}
-         
+
         <!-- image -->
         <div class="image">
             <img src="https://github.com/lironbdolah/Liron/blob/main/static/welcome.png?raw=true" id="image" />
             <a href="javascript:setImageVisible('image', true)">show image</a>
-            <a href="javascript:setImageVisible('image', false)">hide image</a>   
+            <a href="javascript:setImageVisible('image', false)">hide image</a>
         </div>
-        
+
 
         <!-- lower footer -->
         {% include 'lower_footer.html' %}
         {% endblock %}
     </div>
-   
+
 </body>
 
- <!-- Js script -->
- <script type=text/javascript src="{{ url_for('static',filename='main.js') }}"></script>
+<!-- Js script -->
+<script type=text/javascript src="{{ url_for('static',filename='main.js') }}"></script>
+
 </html>

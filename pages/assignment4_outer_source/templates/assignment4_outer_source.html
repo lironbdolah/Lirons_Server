@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% set title='assignment4_outer_source' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="fronform">
+    <p>Get User (Frontend):</p><br>
+    <form action="/assignment4/outer_source" target="frame" id="frontsingleuserform" method="POST">
+        <label class="frontsingleuser_id">ID:</label>
+        <input type="text" class="frontsingleuser_id" id="frontsingleuser_id" name="frontsingleuser_id" required><br>
+        <button id="submit" onclick="request_user()" type="button">Submit</button>
+    </form>
+</div>
+<div class="center">
+<p id="userdata"></p>
+</div>
+
+
+<div class="backform">
+    <p>Get User (Backend):</p><br>
+    <form action="/assignment4/outer_source" target="frame" id="singleuserform" method="POST">
+        <label class="singleuser_id">ID:</label>
+        <input type="text" class="singleuser_id" id="singleuser_id" name="singleuser_id" required><br>
+    </form>
+    <input type="submit" form="singleuserform" /><br>
+</div>
+<div class="center">
+    {{ session['user_data'] }}
+</div>
+{% endblock %}

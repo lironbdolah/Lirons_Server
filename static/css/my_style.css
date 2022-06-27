@@ -102,6 +102,7 @@ body {
 }
 
 .navbar li a {
+    direction: ltr;
     text-decoration: none;
     /* remove underline from each link */
     padding: 0;
@@ -175,91 +176,88 @@ body {
 }
 
 
-/* ### contact page style ### */
+/* ################# assignment4 page settings ################# */
 
-.contact_border {
+.insertion_user{
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 3%;
+    border: var(--font_color);
+    direction: ltr;
+    opacity: 65%;
     background-color: var(--nav_backround);
     border-radius: 5px;
-    /* round border corners */
-    border-color: var(--font_color);
-    border-style: solid;
-    height: 325px;
-    width: 425px;
+    width: 25%;
+    
+}
+
+.update_user{
+    text-align: center;
     margin: 0 auto;
-    text-align: left;
+    margin-bottom: 3%;
+    border: var(--font_color);
+    direction: ltr;
     opacity: 65%;
-    margin-top: 40px;
-    /* distance from top */
-    padding-left: 10px;
-
-}
-
-.contact_inputs {
+    background-color: var(--nav_backround);
     border-radius: 5px;
-    width: 400px;
-
+    width: 25%;
 }
 
-.contact_labels {
-    display: block;
-    margin-top: 8px;
-}
-
-.date {
-    margin-top: 15px;
-    margin-left: 80px;
-    display: block;
-}
-
-#submit {
-    margin-top: 10px;
-    margin-left: 180px;
-    margin-bottom: 20px;
-}
-
-/* ################# assignment3_1 page settings ################# */
-
-
-
-.album_img {
-    display: block;
+.delete_user{
+    text-align: center;
     margin: 0 auto;
-    width: 150px;
-    height: 150px;
+    margin-bottom: 3%;
+    border: var(--font_color);
+    direction: ltr;
+    opacity: 65%;
+    background-color: var(--nav_backround);
     border-radius: 5px;
-    border-color: var(--font_color);
-    border-style: solid;
+    width: 25%;
 }
 
-.album1 {
-    display: block;
-    text-align: center;
-    margin-bottom: 5%;
 
-}
-
-.album2 {
-
-    display: block;
-    text-align: center;
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-
-.album3 {
-    display: block;
-    text-align: center;
-}
-
-/* ################# assignment3_2 page settings ################# */
-
-.user_search {
+.display_user{
     text-align: center;
     margin: 0 auto;
     margin-bottom: 3%;
 }
 
-.register_user {
+.ass4_forms{
     text-align: center;
     margin: 0 auto;
+    direction: ltr;
 }
+
+
+.fronform{
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 3%;
+    border: var(--font_color);
+    direction: ltr;
+    opacity: 65%;
+    background-color: var(--nav_backround);
+    border-radius: 5px;
+    width: 25%;
+}
+
+
+.backform{
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 3%;
+    border: var(--font_color);
+    direction: ltr;
+    opacity: 65%;
+    background-color: var(--nav_backround);
+    border-radius: 5px;
+    width: 25%;
+}
+
+.center{
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 3%;
+}
+
+

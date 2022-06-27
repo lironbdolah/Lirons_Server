@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% set title='assignment4_users' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+
+<div class="ass4_forms">
+    <div class="insertion_user">
+        <p>insert a new user:</p><br>
+        <form action="/assignment4/insertion" target="frame" id="insertionform" method="POST">
+                <label class="insertion_username">Username:</label>
+                <input type="text" class="insertion_inputs" id="insertion_username" name="insertion_username" required><br>
+
+                <label class="insertion_email">Email:</label>
+                <input type="email" class="insertion_inputs" id="insertion_email" name="insertion_email" required>
+        </form>
+        <input type="submit" form="insertionform" /><br>
+    </div>
+
+    {{ session['insertion_text'] }}<br><br>
+
+
+    <div class="update_user">
+        <p>update a user:</p><br>
+        <form action="/assignment4/update" target="frame" id="updateform" method="POST">
+
+            <label class="current_email">Email:</label>
+            <input type="email" class="current_email" id="current_email" name="current_email" required><br>
+
+            <label class="update_username">Updated Username:</label>
+            <input type="text" class="update_inputs" id="update_username" name="update_username" required>
+        </form>
+        <input type="submit" form="updateform" /><br>
+    </div>
+
+    {{ session['updates'] }}<br><br>
+
+    <div class="delete_user">
+        <p>delete a user:</p><br>
+        <form action="/assignment4/delete" target="frame" id="deleteform" method="POST">
+
+            <label class="delete_email">Email:</label>
+            <input type="email" class="delete_inputs" id="delete_email" name="delete_email" required>
+
+        </form>
+        <input type="submit" form="deleteform" /><br>
+    </div>
+
+    {{ session['delete'] }}<br><br>
+
+    <div class="display_user">
+        <a href="/assignment4/display">Display Users names</a><br>
+        {{ session['users'] }}
+    </div>
+</div>
+
+
+{% endblock %}

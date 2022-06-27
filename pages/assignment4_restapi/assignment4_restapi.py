@@ -37,7 +37,7 @@ def project_page(custom_user):
 @assignment4_restapi.route('/assignment4/restapi_users', methods=['POST', 'GET'])
 def empty_page():
     session.clear()
-    custom_user = 5796645
+    custom_user = get_ids()[0]
     table = get_table()
     json_data = []
     row_headers = [x[0] for x in mycursor.description]
@@ -50,7 +50,7 @@ def empty_page():
 @assignment4_restapi.route('/assignment4/restapi_users/', methods=['POST', 'GET'])
 def empty_page_slash():
     session.clear()
-    custom_user = 5796645
+    custom_user = get_ids()[0]
     table = get_table()
     json_data = []
     row_headers = [x[0] for x in mycursor.description]

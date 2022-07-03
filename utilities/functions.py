@@ -3,10 +3,10 @@ import mysql.connector
 ## connections
 try:
     mydb = mysql.connector.connect(
-      host="localhost",
-      user="root",
-      password="root",
-      database="db_users"
+        host="localhost",
+        user="root",
+        password="root",
+        database="db_users"
     )
     mycursor = mydb.cursor()
 except:
@@ -50,10 +50,12 @@ except:
         mycursor.execute(sql, v)
     mydb.commit()
 
+
 def get_table():
     mycursor.execute("SELECT * FROM users")
     table = mycursor.fetchall()
     return table
+
 
 def get_email():
     mycursor.execute("SELECT email FROM users")
@@ -61,11 +63,13 @@ def get_email():
     emails = [i for sub in m for i in sub]
     return emails
 
+
 def get_ids():
     mycursor.execute("SELECT id FROM users")
     m = mycursor.fetchall()
     ids = [i for sub in m for i in sub]
     return ids
+
 
 def get_user():
     mycursor.execute("SELECT user_name FROM users")

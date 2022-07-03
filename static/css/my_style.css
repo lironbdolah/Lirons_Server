@@ -178,7 +178,7 @@ body {
 
 /* ################# assignment4 page settings ################# */
 
-.insertion_user{
+.insertion_user {
     text-align: center;
     margin: 0 auto;
     margin-bottom: 3%;
@@ -188,22 +188,10 @@ body {
     background-color: var(--nav_backround);
     border-radius: 5px;
     width: 25%;
-    
+
 }
 
-.update_user{
-    text-align: center;
-    margin: 0 auto;
-    margin-bottom: 3%;
-    border: var(--font_color);
-    direction: ltr;
-    opacity: 65%;
-    background-color: var(--nav_backround);
-    border-radius: 5px;
-    width: 25%;
-}
-
-.delete_user{
+.update_user {
     text-align: center;
     margin: 0 auto;
     margin-bottom: 3%;
@@ -215,21 +203,7 @@ body {
     width: 25%;
 }
 
-
-.display_user{
-    text-align: center;
-    margin: 0 auto;
-    margin-bottom: 3%;
-}
-
-.ass4_forms{
-    text-align: center;
-    margin: 0 auto;
-    direction: ltr;
-}
-
-
-.fronform{
+.delete_user {
     text-align: center;
     margin: 0 auto;
     margin-bottom: 3%;
@@ -242,7 +216,20 @@ body {
 }
 
 
-.backform{
+.display_user {
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 3%;
+}
+
+.ass4_forms {
+    text-align: center;
+    margin: 0 auto;
+    direction: ltr;
+}
+
+
+.fronform {
     text-align: center;
     margin: 0 auto;
     margin-bottom: 3%;
@@ -254,10 +241,21 @@ body {
     width: 25%;
 }
 
-.center{
+
+.backform {
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 3%;
+    border: var(--font_color);
+    direction: ltr;
+    opacity: 65%;
+    background-color: var(--nav_backround);
+    border-radius: 5px;
+    width: 25%;
+}
+
+.center {
     text-align: center;
     margin: 0 auto;
     margin-bottom: 3%;
 }
-
-

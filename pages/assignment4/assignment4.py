@@ -1,16 +1,17 @@
-from flask import render_template, request, session,Blueprint,jsonify,make_response
+from flask import render_template, request, session, Blueprint, jsonify, make_response
 import mysql.connector
 from random import randint
 from utilities.functions import *
 
 # catalog blueprint definition
-assignment4 = Blueprint('assignment4', __name__, static_folder='static', static_url_path='/assignment4', template_folder='templates')
+assignment4 = Blueprint('assignment4', __name__, static_folder='static', static_url_path='/assignment4',
+                        template_folder='templates')
 
 
-def insert_user(username,email):
+def insert_user(username, email):
     emails = get_email()
     if email in emails:
-        return 'this email is already taken '
+        return 'this email is already taken'
     else:
 
         # get uniq id
@@ -20,15 +21,16 @@ def insert_user(username,email):
             id = randint(100, 9999999)
 
         # insert user to the table
-        val = (id,username, email)
+        val = (id, username, email)
         sql = "INSERT INTO users (id,user_name, email) VALUES (%s, %s, %s )"
         mycursor.execute(sql, val)
         mydb.commit()
-        return 'the new user:' + username + " , " + email +' has been entered'
+        return 'the new user:' + username + " , " + email + ' has been entered'
+
 
 # updates user name
-def update_user(email,new_user):
-    #check current user_name
+def update_user(email, new_user):
+    # check current user_name
     try:
         mycursor.execute("SELECT user_name FROM users WHERE email = %s", (email,))
         n = mycursor.fetchall()
@@ -38,12 +40,13 @@ def update_user(email,new_user):
             ## update user name
             mycursor.executemany("UPDATE users SET user_name = %s WHERE email = %s ", [(new_user, email)])
             mydb.commit()
-            return "user name updated! " + current_name[0] +" --> " + new_user
+            return "user name updated! " + current_name[0] + " --> " + new_user
         else:
             return "This is already the user name"
 
     except:
         return "user does not exist in the database"
+
 
 def delete_user(email):
     emails = get_email()
@@ -51,12 +54,13 @@ def delete_user(email):
         ## delete user
         val = (email,)
         sql = "DELETE FROM users WHERE email = %s"
-        mycursor.execute(sql,val)
+        mycursor.execute(sql, val)
         mydb.commit()
-        return 'The user with the email: ' + email +' has been deleted from the Database'
+        return 'The user with the email: ' + email + ' has been deleted from the Database'
 
     else:
         return 'Email is not in the Database'
+
 
 # Routes
 @assignment4.route('/')
@@ -68,21 +72,23 @@ def index_home():
 def index():
     return render_template('assignment4.html')
 
+
 @assignment4.route('/assignment4/insertion', methods=['POST'])
 def insertion_form():
     session.clear()
     insertion_username = request.form['insertion_username']
     insertion_email = request.form['insertion_email']
-    insertion_text = insert_user(insertion_username,insertion_email)
+    insertion_text = insert_user(insertion_username, insertion_email)
     session['insertion_text'] = insertion_text
     return render_template('assignment4.html', register_text=session.get(session['insertion_text']))
+
 
 @assignment4.route('/assignment4/update', methods=['POST'])
 def update_form():
     session.clear()
     current_email = request.form['current_email']
     update_username = request.form['update_username']
-    updates_text = update_user(current_email,update_username)
+    updates_text = update_user(current_email, update_username)
     session['updates'] = updates_text
     return render_template('assignment4.html', register_text=session.get(session['updates']))
 
@@ -95,50 +101,10 @@ def delete_form():
     session['delete'] = delete_text
     return render_template('assignment4.html', register_text=session.get(session['delete']))
 
-@assignment4.route('/assignment4/display', methods=['GET','POST'])
+
+@assignment4.route('/assignment4/display', methods=['GET', 'POST'])
 def display_users():
     session.clear()
     users = get_user()
-    session['users'] =str(users)
+    session['users'] = str(users)
     return render_template('assignment4.html', register_text=session.get(session['users']))
-#
-# @assignment4.route('/assignment4/users', methods=['GET','POST'])
-# def display_json():
-#     session.clear()
-#     table = get_table()
-#     json_data = []
-#     row_headers = [x[0] for x in mycursor.description]
-#     for result in table:
-#         json_data.append(make_response(jsonify(dict(zip(row_headers, result))), 201))
-#     session['json_data'] = json_data
-#     return render_template('assignment4.html', register_text=session.get(session['json_data']))
-
-
-
-
-
-
-# @assignment4.route('/restapi_users/<int:custom_user>', methods=['POST', 'GET'])
-# def project_page(custom_user):
-#     session.clear()
-#     ids = get_ids()
-#     if custom_user in ids:
-#         table = get_table()
-#         json_data = []
-#         row_headers = [x[0] for x in mycursor.description]
-#         for result in table:
-#             if custom_user in result:
-#                 json_data.append(dict(zip(row_headers, result)))
-#         session['custom_user'] = str(json_data)
-#         return render_template("assignment4.html", custom_user=custom_user, register_text=session['custom_user'])
-#     else:
-#         custom_user = ''
-#         session['custom_user'] = 'ERROR: No Existing user with stated ID'
-#         return render_template("assignment4.html", custom_user=custom_user, register_text=session['custom_user'])
-#
-# @assignment4.route('/restapi_users/', methods=['POST', 'GET'])
-# def empty_page():
-#     session.clear()
-#     custom_user = ''
-#     session['custom_user'] = 'ERROR: No Existing user with stated ID'
-#     return render_template("assignment4.html", custom_user=custom_user, register_text=session['custom_user'])

@@ -1,13 +1,13 @@
 import json
 
-from flask import render_template, session,Blueprint,jsonify,make_response,Response
+from flask import render_template, session, Blueprint, jsonify, make_response, Response
 from utilities.functions import *
-
 
 assignment4_users = Blueprint('assignment4_users', __name__, static_folder='static',
                               static_url_path='/assignment4_users', template_folder='templates')
 
-@assignment4_users.route('/assignment4/users', methods=['GET','POST'])
+
+@assignment4_users.route('/assignment4/users', methods=['GET', 'POST'])
 def display_json():
     table = get_table()
     json_data = []

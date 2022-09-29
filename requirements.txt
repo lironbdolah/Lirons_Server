@@ -67,7 +67,6 @@ plotly==5.9.0
 pptree==3.1
 prophet==1.0.1
 protobuf==3.19.4
-ptyprocess-0.7.0-py2.py3-none-any.whl
 py4j==0.10.9.5
 pyasn1==0.4.8
 pyasn1-modules==0.2.8

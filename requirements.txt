@@ -64,15 +64,11 @@ pandas==1.4.2
 Pillow==9.1.1
 plotly==5.9.0
 pptree==3.1
-prophet==1.0.1
 protobuf==3.19.4
 py4j==0.10.9.5
-pyasn1==0.4.8
-pyasn1-modules==0.2.8
 pycosat==0.6.3
 PyMeeus==0.5.11
 PySocks==1.7.1
-pystan==2.19.1.1
 python-dotenv==0.20.0
 PyYAML==6.0
 regex==2022.6.2
